@@ -1,16 +1,20 @@
+const postContainer = document.getElementById("post-container");
 const loadData = async () => {
   const response = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/posts"
   );
   const data = await response.json();
   const allPost = data.posts;
-  const postContainer = document.getElementById("post-container");
-  const activeDot = document.getElementById("active-dot");
-  let dotColor = "bg-green-600";
+  displayPosts(allPost);
+};
+let dotColor = "";
 
+const displayPosts = (allPost) => {
   allPost.forEach((post) => {
-    if (!post.isActive) {
-      dotColor = "bg-red-500";
+    if (post.isActive) {
+      dotColor = "bg-green-600";
+    } else {
+      dotColor = "bg-red-600";
     }
     const div = document.createElement("div");
     const title = post.title;
@@ -57,6 +61,7 @@ const loadData = async () => {
     postContainer.appendChild(div);
   });
 };
+
 let readCount = 0;
 const markAsRead = (title, views) => {
   const markAsReadContainer = document.getElementById("mark-as-read-container");
@@ -75,5 +80,20 @@ const markAsRead = (title, views) => {
   const readCounter = document.getElementById("read-count");
   readCounter.innerText = readCount;
   markAsReadContainer.appendChild(div);
+};
+
+const searchPost = () => {
+  postContainer.textContent = "";
+  const searchField = document.getElementById("search-field");
+  const searchedCategory = searchField.value;
+  const search = async () => {
+    const response = await fetch(
+      `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchedCategory}`
+    );
+    const data = await response.json();
+    const allSearchedPosts = data.posts;
+    displayPosts(allSearchedPosts);
+  };
+  search();
 };
 loadData();
