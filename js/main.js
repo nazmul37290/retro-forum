@@ -7,11 +7,13 @@ const loadData = async () => {
   const postContainer = document.getElementById("post-container");
   const activeDot = document.getElementById("active-dot");
   let dotColor = "bg-green-600";
+
   allPost.forEach((post) => {
     if (!post.isActive) {
       dotColor = "bg-red-500";
     }
     const div = document.createElement("div");
+    const title = post.title;
     div.classList = `p-5 mt-5 bg-[#797dfc1a] rounded-lg flex`;
     div.innerHTML = `
             <div class="relative rounded-2xl    w-20 mt-5">
@@ -25,26 +27,25 @@ const loadData = async () => {
                   class="border-b-2 space-y-4 border-dashed border-gray-300 p-5"
                 >
                   <div class="flex gap-5 items-center">
-                    <p># <span>music</span></p>
-                    <p>Author : <span>Awlad hossain</span></p>
+                    <p># <span>${post.category}</span></p>
+                    <p>Author : <span>${post.author.name}</span></p>
                   </div>
                   <h2 class="text-2xl font-bold">
-                    10 kids unaware of Their Halloween Costume
+                    ${post.title}
                   </h2>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rem, ducimus.
+                    ${post.description}
                   </p>
                 </div>
                 <div class="flex justify-between p-5">
                   <div class="flex gap-8 items-center">
-                    <p><i class="fa-regular fa-message"></i><span>10</span></p>
-                    <p><i class="fa-regular fa-eye"></i><span>10</span></p>
-                    <p><i class="fa-regular fa-clock"></i><span>10</span></p>
+                    <p><i class="fa-regular fa-message"></i><span> ${post.comment_count}</span></p>
+                    <p><i class="fa-regular fa-eye"></i><span> ${post.view_count}</span></p>
+                    <p><i class="fa-regular fa-clock"></i><span> ${post.posted_time}</span> min</p>
                   </div>
                   <div>
-                    <button
-                      class="bg-green-400 w-8 h-8 rounded-full flex items-center justify-center"
+                    <button onclick="markAsRead(&#34;${title}&#34;,&#34; ${post.view_count}&#34;)"
+                      class="read-btn bg-green-400 w-8 h-8 rounded-full flex items-center justify-center"
                     >
                       <i class="fa-regular fa-envelope-open"></i>
                     </button>
@@ -56,5 +57,23 @@ const loadData = async () => {
     postContainer.appendChild(div);
   });
 };
+let readCount = 0;
+const markAsRead = (title, views) => {
+  const markAsReadContainer = document.getElementById("mark-as-read-container");
+  const div = document.createElement("div");
+  div.classList = `flex items-center justify-between p-4 rounded-lg`;
+  div.innerHTML = `
+<h1 class="text-2xl font-bold w-[400px]">${title}</h1>
+                <div class="text-lg">
+                  <i class="fa-regular fa-eye"></i>
+                  <span>${views}</span>
+                </div>
+`;
+  console.log(title, views);
 
+  readCount++;
+  const readCounter = document.getElementById("read-count");
+  readCounter.innerText = readCount;
+  markAsReadContainer.appendChild(div);
+};
 loadData();
