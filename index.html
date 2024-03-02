@@ -45,38 +45,48 @@
                 class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a><i title="home" class="fa-solid fa-house fa-fw"></i></a>
+                  <a
+                    ><i title="home" class="fa-solid fa-house fa-fw"></i>Home</a
+                  >
                 </li>
 
                 <li>
-                  <a><i class="fa-solid fa-pen"></i></a>
+                  <a><i class="fa-solid fa-pen"></i> Post</a>
                 </li>
                 <li>
-                  <a><i class="fa-solid fa-user-plus"></i></a>
+                  <a><i class="fa-solid fa-user-plus"></i>User</a>
                 </li>
 
                 <li>
-                  <a><i class="fa-regular fa-flag"></i></a>
+                  <a><i class="fa-regular fa-flag"></i>Region</a>
                 </li>
               </ul>
             </div>
-            <a class="btn btn-ghost text-xl">DiscussHUB</a>
+            <a class="btn btn-ghost text-2xl font-bold">DiscussHUB</a>
           </div>
           <div class="navbar-end hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
               <li>
-                <a><i title="home" class="fa-solid fa-house fa-fw"></i></a>
+                <a class="p-4"
+                  ><i title="home" class="fa-solid fa-house fa-fw fa-xl"></i
+                ></a>
               </li>
 
               <li>
-                <a><i class="fa-solid fa-pen"></i></a>
+                <a class="p-4"
+                  ><i title="post" class="fa-solid fa-pen fa-xl"></i
+                ></a>
               </li>
               <li>
-                <a><i class="fa-solid fa-user-plus"></i></a>
+                <a class="p-4"
+                  ><i title="user" class="fa-solid fa-user-plus fa-xl"></i
+                ></a>
               </li>
 
               <li>
-                <a><i class="fa-regular fa-flag"></i></a>
+                <a class="p-4"
+                  ><i title="region" class="fa-regular fa-flag fa-xl"></i
+                ></a>
               </li>
             </ul>
             <div class="">
@@ -145,6 +155,88 @@
         </div>
       </section>
     </header>
+    <main class="container mx-auto">
+      <!-- lets discuss section -->
+      <section class="mt-24">
+        <!-- section heading -->
+        <div class="text-center space-y-5">
+          <h3 class="text-4xl font font-extrabold">Let's Discuss</h3>
+          <p class="w-[650px] mx-auto">
+            This space is designed for the curious minds eager to share
+            perspectives, exchange ideas, and ignite engaging discussions.
+          </p>
+        </div>
+        <!-- post section -->
+        <div class="flex justify-between gap-10">
+          <!-- post container -->
+          <div class="w-3/5">
+            <!-- post cards -->
+            <div class="p-5 mt-5 bg-[#797dfc1a] rounded-lg flex">
+              <div class="relative rounded-2xl bg-white h-14 w-14 mt-5">
+                <img class="w-full rounded-2xl" src="images/logo.png" alt="" />
+                <div
+                  class="h-3 w-3 bg-red-600 rounded-full absolute right-0 top-[-2px]"
+                ></div>
+              </div>
+              <div class="w-full">
+                <div
+                  class="border-b-2 space-y-4 border-dashed border-gray-300 p-5"
+                >
+                  <div class="flex gap-5 items-center">
+                    <p># <span>music</span></p>
+                    <p>Author : <span>Awlad hossain</span></p>
+                  </div>
+                  <h2 class="text-2xl font-bold">
+                    10 kids unaware of Their Halloween Costume
+                  </h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Rem, ducimus.
+                  </p>
+                </div>
+                <div class="flex justify-between p-5">
+                  <div class="flex gap-8 items-center">
+                    <p><i class="fa-regular fa-message"></i><span>10</span></p>
+                    <p><i class="fa-regular fa-eye"></i><span>10</span></p>
+                    <p><i class="fa-regular fa-clock"></i><span>10</span></p>
+                  </div>
+                  <div>
+                    <button
+                      class="bg-green-400 w-8 h-8 rounded-full flex items-center justify-center"
+                    >
+                      <i class="fa-regular fa-envelope-open"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- mark as read container -->
+          <div class="p-10 bg-[#12132d1a] rounded-2xl w-2/5">
+            <!-- heading -->
+            <div class="flex items-center justify-between p-5">
+              <h1 class="text-3xl font-bold">Title</h1>
+              <div class="flex items-center text-xl">
+                <i class="fa-solid fa-check-double text-green-400"></i>
+                <p>Mark as read (<span>0</span>)</p>
+              </div>
+            </div>
+            <!-- cards container -->
+            <div>
+              <!-- cards -->
+              <div class="flex items-center justify-between p-4 rounded-lg">
+                <h1 class="text-2xl font-bold">Lorem ipsum dolor sit amet.</h1>
+                <div class="text-lg">
+                  <i class="fa-regular fa-eye"></i>
+                  <span>0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <script src="js/main.js"></script>
   </body>
 </html>
