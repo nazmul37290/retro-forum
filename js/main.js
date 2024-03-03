@@ -1,13 +1,23 @@
 const postContainer = document.getElementById("post-container");
 const latestPostContainer = document.getElementById("latest-post-container");
+const loadingSpinner = document.getElementById("loading-spinner");
 const loadData = async () => {
+  showLoadingSpinner();
+
+  await new Promise((spinnerBreak) => setTimeout(spinnerBreak, 2000));
   const response = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/posts"
   );
   const data = await response.json();
   const allPost = data.posts;
+
   displayPosts(allPost);
+  // setTimeout(() => {
+  //   hideLoadingSpinner();
+  // }, 2000);
+  hideLoadingSpinner();
 };
+
 let dotColor = "";
 
 const displayPosts = (allPost) => {
@@ -88,12 +98,15 @@ const searchPost = () => {
   const searchField = document.getElementById("search-field");
   const searchedCategory = searchField.value;
   const search = async () => {
+    showLoadingSpinner();
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     const response = await fetch(
       `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchedCategory}`
     );
     const data = await response.json();
     const allSearchedPosts = data.posts;
     displayPosts(allSearchedPosts);
+    hideLoadingSpinner();
   };
   search();
 };
@@ -146,5 +159,13 @@ const loadLatestPosts = async () => {
     latestPostContainer.appendChild(div);
   });
 };
+
+const showLoadingSpinner = () => {
+  loadingSpinner.classList.remove("hidden");
+};
+const hideLoadingSpinner = () => {
+  loadingSpinner.classList.add("hidden");
+};
+
 loadLatestPosts();
 loadData();
