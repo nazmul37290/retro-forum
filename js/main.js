@@ -1,4 +1,5 @@
 const postContainer = document.getElementById("post-container");
+const latestPostContainer = document.getElementById("latest-post-container");
 const loadData = async () => {
   const response = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/posts"
@@ -96,4 +97,54 @@ const searchPost = () => {
   };
   search();
 };
+
+const loadLatestPosts = async () => {
+  const response = await fetch(
+    "https://openapi.programming-hero.com/api/retro-forum/latest-posts"
+  );
+  const data = await response.json();
+  data.forEach((item) => {
+    console.log(item);
+    const div = document.createElement("div");
+    div.classList = `rounded-3xl  shadow-xl border border-black`;
+    div.innerHTML = `
+    <figure class="px-5 pt-5">
+              <img
+                src="${item.cover_image}"
+                alt=""
+                class="rounded-xl"
+              />
+            </figure>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center gap-2">
+                <i class="fa-regular fa-calendar"></i>
+                <span>${
+                  item.author.posted_date
+                    ? item.author.posted_date
+                    : "No publish date"
+                }</span>
+              </div>
+              <h2 class="card-title font-bold text-xl">${item.title}</h2>
+              <p>${item.description}</p>
+              <div class="flex items-center gap-2">
+                <div class="w-12 h-12 bg-red-300 rounded-full">
+                  <img class="w-full rounded-full" src="${
+                    item.profile_image
+                  }" alt="" />
+                </div>
+                <div class="">
+                  <p class="font-bold text-lg">${item.author.name}</p>
+                  <p>${
+                    item.author.designation
+                      ? item.author.designation
+                      : "Unknown"
+                  }</p>
+                </div>
+              </div>
+            </div>
+    `;
+    latestPostContainer.appendChild(div);
+  });
+};
+loadLatestPosts();
 loadData();
