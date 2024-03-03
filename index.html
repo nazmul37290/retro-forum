@@ -18,7 +18,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <header class="container mx-auto">
+    <header class="container mx-auto p-2 lg:p-0">
       <!-- navbar starts here -->
       <nav>
         <div class="navbar bg-base-100 mt-4">
@@ -103,28 +103,30 @@
       <section>
         <div class="bg-[#12132d] rounded-3xl mt-10">
           <div
-            class="p-24 flex flex-col lg:flex-row items-center justify-around gap-10 text-white bg-[url('images/bgbanner.png')] bg-no-repeat bg-cover"
+            class="p-4 lg:p-24 flex flex-col lg:flex-row items-center justify-around gap-4 lg:gap-10 text-white bg-[url('images/bgbanner.png')] bg-no-repeat bg-cover"
           >
             <!-- left side -->
-            <div class="space-y-10">
-              <h2 class="text-6xl font-extrabold">
+            <div class="space-y-4 lg:space-y-10 p-4">
+              <h2 class="text-3xl lg:text-6xl font-extrabold">
                 Welcome to the <br />
                 <span class="mt-2">DiscussHUB</span>
               </h2>
-              <p class="font-medium text-2xl">
+              <p class="font-medium text-lg lg:text-2xl">
                 Share your favorite opinion and win DiscussHUB coffee mug!
               </p>
               <!-- search field -->
-              <div class="bg-white flex justify-between rounded-3xl w-96 p-1">
+              <div
+                class="bg-white flex justify-between rounded-3xl w-auto lg:w-96 p-1"
+              >
                 <input
                   id="search-field"
-                  class="py-3 text-black outline-none px-5 bg-transparent"
+                  class="py-3 text-black outline-none px-2 lg:px-5 bg-transparent"
                   type="text"
                   placeholder="Search here anything"
                 />
                 <button
                   onclick="searchPost()"
-                  class="bg-[#797dfc] rounded-3xl text-white text-lg font-bold py-2 px-6"
+                  class="bg-[#797dfc] rounded-3xl text-white text-sm lg:text-lg font-bold py-2 px-2 lg:px-6"
                 >
                   Search
                 </button>
@@ -157,13 +159,13 @@
         </div>
       </section>
     </header>
-    <main class="container mx-auto">
+    <main class="container mx-auto p-2">
       <!-- lets discuss section -->
       <section class="mt-24">
         <!-- section heading -->
         <div class="text-center space-y-5 mb-10">
           <h3 class="text-4xl font font-extrabold">Let's Discuss</h3>
-          <p class="w-[650px] mx-auto">
+          <p class="w-auto lg:w-[650px] mx-auto">
             This space is designed for the curious minds eager to share
             perspectives, exchange ideas, and ignite engaging discussions.
           </p>
@@ -173,20 +175,24 @@
           <span class="loading loading-bars loading-lg"></span>
         </div>
         <!-- post section -->
-        <div class="flex justify-between gap-10">
+        <div class="flex flex-col lg:flex-row justify-between gap-10">
           <!-- post container -->
-          <div id="post-container" class="w-3/5">
+          <div id="post-container" class="w-auto lg:w-3/5">
             <!-- post cards -->
           </div>
 
           <!-- mark as read container -->
-          <div class="p-10 bg-[#12132d1a] rounded-2xl w-2/5 h-fit">
+          <div
+            class="p-2 lg:p-10 bg-[#12132d1a] rounded-2xl w-auto lg:w-2/5 h-fit"
+          >
             <!-- heading -->
-            <div class="flex items-center justify-between p-5">
-              <h1 class="text-3xl font-bold">Title</h1>
+            <div class="flex items-center justify-between p-1 lg:p-5">
+              <h1 class="text-lg lg:text-3xl font-bold">Title</h1>
               <div class="flex items-center text-xl">
                 <i class="fa-solid fa-check-double text-green-400"></i>
-                <p>Mark as read (<span id="read-count">0</span>)</p>
+                <p class="text-sm">
+                  Mark as read (<span id="read-count">0</span>)
+                </p>
               </div>
             </div>
             <!-- cards container -->
@@ -198,17 +204,17 @@
       </section>
       <!-- join forum section -->
       <section class="mt-24">
-        <div class="hero bg-[#12132d] text-white rounded-3xl p-14">
+        <div class="hero bg-[#12132d] text-white rounded-3xl p-2 lg:p-14">
           <div
             class="hero-content flex-col lg:flex-row-reverse w-full justify-around"
           >
             <img
               src="images/joinforum.png"
-              class="max-w-sm rounded-lg shadow-2xl"
+              class="w-auto rounded-lg shadow-2xl"
             />
             <div>
               <h1 class="text-5xl font-bold">Join our HUB</h1>
-              <p class="py-6 w-[650px]">
+              <p class="py-6 w-auto xl:w-[650px]">
                 Welcome to DiscussHUB – where vibrant discussions come to life!
                 Join our thriving community of inquisitive minds, passionate
                 thinkers, and knowledge seekers
@@ -226,7 +232,7 @@
       <section class="mt-24">
         <div class="text-center space-y-5 mb-10">
           <h3 class="text-4xl font font-extrabold">Latest Posts</h3>
-          <p class="w-[650px] mx-auto">
+          <p class="w-auto lg:w-[650px] mx-auto">
             Explore the pulse of our community with the Latest Posts section!
             Stay at the forefront of insightful conversations, breaking news,
             and engaging discussions.
@@ -240,7 +246,7 @@
       </section>
     </main>
     <footer class="mt-24">
-      <div class="flex items-center bg-base-200 justify-center">
+      <div class="flex items-center bg-base-200 justify-center p-2">
         <div class="py-20">
           <div class="text-center border-b-2 border-gray-400">
             <div class="">

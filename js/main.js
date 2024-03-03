@@ -29,7 +29,7 @@ const displayPosts = (allPost) => {
     }
     const div = document.createElement("div");
     const title = post.title;
-    div.classList = `p-5 mt-5 bg-[#797dfc1a] rounded-lg flex`;
+    div.classList = `p-2 lg:p-5 mt-5 bg-[#797dfc1a] rounded-lg flex flex-col lg:flex-row`;
     div.innerHTML = `
             <div class="relative rounded-2xl    w-20 mt-5">
                 <img class="w-full object-cover rounded-2xl" src="${post.image}" alt="" />
@@ -39,10 +39,10 @@ const displayPosts = (allPost) => {
               </div>
               <div class="w-full">
                 <div
-                  class="border-b-2 space-y-4 border-dashed border-gray-300 p-5"
+                  class="border-b-2 space-y-4 border-dashed border-gray-300 p-2 lg:p-5"
                 >
                   <div class="flex gap-5 items-center">
-                    <p># <span>${post.category}</span></p>
+                    <p># <span class="text-sm">${post.category}</span></p>
                     <p>Author : <span>${post.author.name}</span></p>
                   </div>
                   <h2 class="text-2xl font-bold">
@@ -53,7 +53,7 @@ const displayPosts = (allPost) => {
                   </p>
                 </div>
                 <div class="flex justify-between p-5">
-                  <div class="flex gap-8 items-center">
+                  <div class="flex gap-3 lg:gap-8 items-center">
                     <p><i class="fa-regular fa-message"></i><span> ${post.comment_count}</span></p>
                     <p><i class="fa-regular fa-eye"></i><span> ${post.view_count}</span></p>
                     <p><i class="fa-regular fa-clock"></i><span> ${post.posted_time}</span> min</p>
@@ -77,10 +77,10 @@ let readCount = 0;
 const markAsRead = (title, views) => {
   const markAsReadContainer = document.getElementById("mark-as-read-container");
   const div = document.createElement("div");
-  div.classList = `flex items-center justify-between p-4 rounded-lg`;
+  div.classList = `flex items-center justify-between p-1 bg-base-100 mb-2 lg:p-4 rounded-lg`;
   div.innerHTML = `
-<h1 class="text-2xl font-bold w-[400px]">${title}</h1>
-                <div class="text-lg">
+<h1 class="text-lg lg:text-2xl font-bold w-auto lg:w-[400px]">${title}</h1>
+                <div class="text-sm lg:text-lg">
                   <i class="fa-regular fa-eye"></i>
                   <span>${views}</span>
                 </div>
